@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MAA-Africa</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %> 
+</head>
+<body>
+    <h3 class="nav text-center text-white sticky-top p-3 bg-custom mt-0">MAA-Africa</h3>
+        <div class="container">
+            <% if flash[:notice] %>
+                <div class="alert alert-primary text-center my-3">
+                    <%= flash[:notice] %>
+                </div>
+            <% end %>
+            <h2 class="text-center my-5">My Menopause story...</h2>
+                <h5>
+                    <em>It took an interview for The Guardian, to get me here to be open and free to talk about my menopause.
+                        <br>
+                        When I put myself forward to be interviewed about Menopause - I want sure I was in menopause
+                    </em>
+                </h5>
+            <div class="row m-3">
+            <div class="col-md-6 mb-3">
+                <div class="card">       
+                <div class="card-body">
+                    <h5 class="card-title">‘Me and my menopause’: a view from women around the world</h5>
+                    <br>
+                    <%= image_tag '5472.avif', alt: 'Naijeria and Ondiege', class: 'img-fluid rounded d-block mx-auto' %>    
+                    <br>
+                    <p class="card-text">My take on menopause and its impact on my health and well being.</p>
+                    <a href="https://www.theguardian.com/global-development/2024/feb/07/menopause-reproductive-health-stigma-medical-treatment-information-mood-anxiety-support#kenya-we-should-normalise-talking-about-it" class="btn btn-primary" target="_blank">Read the Article</a>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Menopause Buddies Podcast</h5>
+                    <br>
+                    <br>
+                    <%= image_tag 'podcast_image.jpg', alt: 'Menopause Buddies Podcast Icon', class: 'img-fluid rounded d-block mx-auto' %>
+                    <br>
+                    <p class="card-text">Sharing journey and intention to open dialogue around menopause in my community</p>
+                    <a href="https://menopausebuddies.alitu.com/episode/1dd6a084-9f7b-4134-ad89-d112f25ac7c3" class="btn btn-primary" target="_blank">Listen to the Podcast</a>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8">
+                    <h2 class="text-center">Would you like to be part of this journey with me?</h2>
+                    <%= form_with model: @user_detail, local: true do |form| %>
+                        <div class="form-group mt-3">
+                            <strong><%= form.label :first_name %></strong>
+                            <%= form.text_field :name, class: 'form-control' %>
+                        </div>
+                        <div class="form-group mt-3">
+                            <strong><%= form.label :share_your_linkedin_profile_link %></strong>
+                            <%= form.url_field :linkedin, class: 'form-control' %>
+                        </div>
+                        <div class="form-group mt-3">
+                            <strong><%= form.label :contribution %></strong>
+                            <%= form.select :contribution, options_for_select([['How would you like to contribute?', ''], 'Tell my story', 'Help fundraise', 'Help come up with a strategy', 'Get my hands dirty', 'Other']), {}, {class: 'form-control'} %>
+                        </div>
+                        <div class="form-group mt-3 pb-4">
+                            <strong><%= form.label :tell_us_more %></strong>
+                            <%= form.text_area :content, placeholder: 'Expound more on your proposed contribution...', class: 'form-control' %>
+                        </div>            
+                        <div class="text-center">
+                            <%= form.submit 'Submit', class: 'btn btn-secondary' %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+        </div>
+    <div class="text-center text-white sticky-bottom p-2 bg-custom mt-5">
+        <em>Powered by Mama Tech</em>
+    </div>
+</body>
+</html>
