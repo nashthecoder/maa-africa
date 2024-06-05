@@ -8,29 +8,35 @@
     <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %> 
 </head>
 <body>
-    <h3 class="nav text-center text-white sticky-top p-3 bg-custom mt-0">MAA-Africa</h3>
+    <h1 class="nav text-center text-white sticky-top p-2 bg-custom mt-0">MAA-Africa</h1>
         <div class="container">
             <% if flash[:notice] %>
                 <div class="alert alert-primary text-center my-3">
                     <%= flash[:notice] %>
                 </div>
             <% end %>
-            <h2 class="text-center my-5">Let's talk about menopause.</h2>
-                <h5 class="p-3 mx-5">
-                    <em>If you have read my menopause story and or listened to the podcast and you would like to help me find and 
-                        share more stories of women in peri menopause, menopause or post menopause in Kenya and beyond, you are in the right place.
-                        Fill the form below and I will reach out to you. 
-                        <br>
-                        <br>
-                        Incase you missed the article or the podcast find the links to both below. 
-                        <br>
-                    </em>
-                </h5>
+            <h2 class="text-center my-5"><strong>Let's talk about menopause.</strong></h2>
+            <h5 class="p-3 mx-5">
+                <em>Menopause is, like any major life stage, part exciting (No more periods!) 
+                and many parts confusion.
+                <br> 
+                <br> 
+                I knew that one would have hot flashes. 
+                How would I know I had started menopause. What else would I feel?
+                Everything else was a mystery. And last but not least, why is no-one talking about this? 
+                Well, that's what I'm doing.
+                <br> 
+                <br>
+                Join me and Lets' talk about menopause.
+                </em>
+            </h5>
             <div class="row m-3">
             <div class="col-md-6 mb-3">
-                <div class="card">       
+                <div class="card">  
+                    <div class="card-header">
+                        <h5 class="card-title p-1">‘Me and my menopause’: a view from women around the world</h5>
+                    </div>     
                 <div class="card-body">
-                    <h5 class="card-title">‘Me and my menopause’: a view from women around the world</h5>
                     <br>
                     <%= image_tag '5472.avif', alt: 'Naijeria and Ondiege', class: 'img-fluid rounded d-block mx-auto' %>    
                     <br>
@@ -42,10 +48,13 @@
 
             <div class="col-md-6 mb-3">
                 <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title p-3">Menopause Buddies Podcast</h5>
+                    </div>
                 <div class="card-body">
-                    <h5 class="card-title">Menopause Buddies Podcast</h5>
+
                     <br>
-                    <br>
+
                     <%= image_tag 'podcast_image.jpg', alt: 'Menopause Buddies Podcast Icon', class: 'img-fluid rounded d-block mx-auto' %>
                     <br>
                     <p class="card-text">Sharing journey and intention to open dialogue around menopause in my community</p>
@@ -53,26 +62,36 @@
                 </div>
                 </div>
             </div>
+            <h5 class="p-3 mx-5">
+                <em>If you have read my menopause story and or listened to the podcast and you would like to help me find and 
+                    share more stories of women in peri menopause, menopause or post menopause in Kenya and beyond, you are in the right place.
+                    Fill the form below and I will reach out to you. 
+                    <br>
+                    <br>
+                    Incase you missed the article or the podcast find the links to both below. 
+                    <br>
+                </em>
+            </h5>
             </div>
             <div class="row justify-content-center mt-5">
                 <div class="col-md-8">
                     <h2 class="text-center">Would you like to be part of this journey with me?</h2>
                     <%= form_with model: @user_detail, local: true do |form| %>
                         <div class="form-group mt-3">
-                            <strong><%= form.label :first_name %></strong>
+                            <strong><%= form.label :name %></strong>
                             <%= form.text_field :name, class: 'form-control' %>
-                        </div>
-                        <div class="form-group mt-3">
-                            <strong><%= form.label :share_your_linkedin_profile_link %></strong>
-                            <%= form.url_field :linkedin, class: 'form-control' %>
                         </div>
                         <div class="form-group mt-3">
                             <strong><%= form.label :contribution %></strong>
                             <%= form.select :contribution, options_for_select([['How would you like to contribute?', ''], 'Tell my story', 'Help fundraise', 'Help come up with a strategy', 'Get my hands dirty', 'Other']), {}, {class: 'form-control'} %>
                         </div>
+                        <div class="form-group mt-3">
+                            <strong><%= form.label :contact %></strong>
+                            <%= form.select :contacts, options_for_select([['How would you prefer I reach out to you?', ''], 'LinkedIn', 'Phone', 'Email',  'Other']), {}, {class: 'form-control'} %>
+                        </div>
                         <div class="form-group mt-3 pb-4">
                             <strong><%= form.label :tell_us_more %></strong>
-                            <%= form.text_area :content, placeholder: 'Expound more on your proposed contribution...', class: 'form-control' %>
+                            <%= form.text_area :content, placeholder: 'Please share your contact details and if necessary expound more on your proposed contribution...', class: 'form-control' %>
                         </div>            
                         <div class="text-center">
                             <%= form.submit 'Submit', class: 'btn btn-secondary' %>
