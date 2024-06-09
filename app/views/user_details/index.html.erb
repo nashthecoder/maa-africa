@@ -23,6 +23,9 @@
                     <td><%= user_detail.contact_options %></td>
                     <td><%= user_detail.contact_details %></td>
                     <td><%= user_detail.contributions.is_a?(Array) ? user_detail.contributions.join(", ") : user_detail.contributions %></td>
+                    <td>
+                        <%= button_to "Delete", user_detail_path(user_detail), method: :delete, class: "bg-danger text-white px-4 py-2 rounded", data: { turbo_confirm: "Are you sure?" } %>
+                    </td>
                     <td><em><small><%= user_detail.created_at.strftime("%d-%m-%Y %H:%M")%></small></em></td>
                 </tr>
             <% end %>
@@ -54,6 +57,7 @@
                     </p>
                 </div>
                 </div>
+                <%= button_to "Delete", user_detail_path(user_detail), method: :delete, class: "bg-danger text-white px-4 py-2", data: { turbo_confirm: "Are you sure?" } %>
             </div>
             <% end %>
         </div>

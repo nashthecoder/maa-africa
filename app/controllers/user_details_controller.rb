@@ -23,7 +23,12 @@ class UserDetailsController < ApplicationController
     end
   end
 
-
+  # DELETE /user_details/:id
+  def destroy
+    @user_detail = UserDetail.find(params[:id])
+    @user_detail.destroy
+    redirect_to user_details_path, notice: "User Detail deleted successfully!"
+  end
 
 
 
