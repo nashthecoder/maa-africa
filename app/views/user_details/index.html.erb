@@ -11,7 +11,8 @@
                 <th>Name</th>
                 <th>Contact Option</th>
                 <th>Contact Details</th>
-                <th>Contribution</th>
+                <th>Contributions</th>
+                <th>Created at</th>
                 <th colspan="3"></th>
             </tr>
             </thead>
@@ -19,9 +20,10 @@
             <% @user_details.each do |user_detail| %>
                 <tr>
                     <td><%= user_detail.name %></td>
-                    <td><%= user_detail.contacts %></td>
-                    <td><%= user_detail.content %></td>
-                    <td><%= user_detail.contribution %></td>
+                    <td><%= user_detail.contact_options %></td>
+                    <td><%= user_detail.contact_details %></td>
+                    <td><%= user_detail.contributions.join(", ") if user_detail.contributions.is_a?(Array) %></td>
+                    <td><em><small><%= user_detail.created_at.strftime("%d-%m-%Y %H:%M")%></small></em></td>
                 </tr>
             <% end %>
             </tbody>
@@ -35,21 +37,21 @@
                 <div class="card mb-4">
                     <h5 class="card-header"><%= user_detail.name %></h5>
                 <div class="card-body">
-                    <p class="card-text"><strong>Contact Option:</strong> <%= user_detail.contacts %></p>
-                    <p class="card-text"><strong>Details:</strong> <%= user_detail.content %></p>
-                </div>
-                <div class="card-footer">
-                    <p class="card-text"><strong>Contribution:</strong></p>
+                    <p class="card-text"><strong>Contact Option:</strong> <%= user_detail.contact_options %></p>
+                    <p class="card-text"><strong>Details:</strong> <%= user_detail.contact_details %></p>
+                    <p class="card-text">
+                        <strong>Contribution:</strong>
+                        <%= user_detail.contributions.is_a?(Array) ? user_detail.contributions.join(", ") : user_detail.contributions %>
+                    </p>
                     <hr>
                     <ul class="list-group">
-                        <% if user_detail.contribution.is_a?(Array) %>
-                            <% user_detail.contribution.each do |contribution| %>
-                            <li class="list-group-item"><%= contribution %></li>
-                            <% end %>
-                        <% else %>
-                            <li class="list-group-item"><%= user_detail.contribution %></li>
-                        <% end %>
+                        <!-- Other content -->
                     </ul>
+                </div>
+                <div class="card-footer">
+                    <p>
+                        <em><small><strong>Created at :</strong> <%= user_detail.created_at.strftime("%d-%m-%Y %H:%M")%></small></em>
+                    </p>
                 </div>
                 </div>
             </div>

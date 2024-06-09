@@ -68,38 +68,7 @@
                     Fill the form below and I will reach out to you. 
                 </em>
             </h5>
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-8">
-                    <h2 class="text-center">Would you like to be part of this journey with me?</h2>
-                    <%= form_with model: @user_detail, local: true do |form| %>
-                        <div class="form-group mt-3">
-                            <strong><%= form.label :name %>:</strong>
-                            <%= form.text_field :name, class: 'form-control' %>
-                        </div>
-                        <div class="form-group mt-3">
-                            <strong><%= form.label :contribution %>:</strong><br>
-                            <hr>
-                            <% ['Tell my story', 'Help fundraise', 'Help come up with a strategy', 'Get my hands dirty'].each do |contribution_option| %>
-                                <div class="form-check">
-                                    <%= form.check_box :contribution, { multiple: true }, contribution_option, nil %>
-                                    <%= form.label contribution_option, class: 'form-check-label' %>
-                                </div>
-                            <% end %>
-                        </div>
-                        <div class="form-group mt-3">
-                            <strong><%= form.label :contact_option%>:</strong>
-                            <%= form.select :contacts, options_for_select([['How would you prefer I reach out to you?', ''], 'LinkedIn', 'Phone', 'Email',  'Other']), {}, {class: 'form-control text-muted'} %>
-                        </div> 
-                        <div class="form-group mt-3 pb-4">
-                            <strong><%= form.label :contact_details%>:</strong>
-                            <%= form.text_area :content, placeholder: 'Please share your contact details.', class: 'form-control' %>
-                        </div>
-                        <div class="text-center">
-                            <%= form.submit 'Submit', class: 'btn btn-secondary' %>
-                        </div>
-                    <% end %>
-                </div>
-            </div>
+            <%= render partial: 'shared/register', locals: { user_detail: @user_detail } %>
 
         </div>
     <div class="text-center text-white sticky-bottom p-2 bg-custom mt-5">
