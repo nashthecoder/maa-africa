@@ -18,3 +18,5 @@ import "../stylesheets/application"
 
 // Import custom JavaScript
 import "../javascripts/components/toggle_view"
+
+//= require_tree .
