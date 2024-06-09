@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_27_134659) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_09_114610) do
   create_table "user_details", force: :cascade do |t|
     t.string "name"
     t.string "linkedin"
-    t.string "contribution"
+    t.string "contribution", default: "{}"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "contacts"
   end
 
 end

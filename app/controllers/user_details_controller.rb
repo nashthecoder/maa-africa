@@ -1,7 +1,17 @@
 class UserDetailsController < ApplicationController
+  def index
+    @user_details = UserDetail.all
+  end
+
+  def show
+  end
+
+  
   def new
     @user_detail = UserDetail.new
   end
+
+
 
   def create
     @user_detail = UserDetail.new(user_detail_params)
@@ -12,9 +22,13 @@ class UserDetailsController < ApplicationController
     end
   end
 
+
+
+
+
   private
 
   def user_detail_params
-    params.require(:user_detail).permit(:name, :linkedin, :contribution, :content)
+    params.require(:user_detail).permit(:name, {contribution: []}, :contacts, :content)
   end
 end

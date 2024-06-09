@@ -15,3 +15,6 @@ ActiveStorage.start()
 import "bootstrap"
 import "popper"
 import "../stylesheets/application"
+
+// Import custom JavaScript
+import "../javascripts/components/toggle_view"
