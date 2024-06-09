@@ -25,7 +25,11 @@
                     <td><%= user_detail.contributions.is_a?(Array) ? user_detail.contributions.join(", ") : user_detail.contributions %></td>
                     <td><em><small><%= user_detail.created_at.strftime("%d-%m-%Y %H:%M")%></small></em></td>
                     <td>
-                        <%= button_to "Delete", user_detail_path(user_detail), method: :delete, class: "bg-danger text-white px-3 py-2 rounded", data: { turbo_confirm: "Are you sure?" } %>
+                        <%= button_to user_detail_path(user_detail), method: :delete, class: "bg-danger text-white px-2 py-1 rounded", data: { turbo_confirm: "Are you sure?" } do %>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM4.354 4.354a.5.5 0 1 1 .708-.708L8 7.293l3.938-3.937a.5.5 0 0 1 .708.708L8.707 8l3.937 3.938a.5.5 0 1 1-.708.708L8 8.707l-3.938 3.937a.5.5 0 1 1-.708-.708L7.293 8 3.354 4.062a.5.5 0 0 1 .708-.708z"/>
+                            </svg>
+                        <% end %>
                     </td>
                 </tr>
             <% end %>
@@ -55,9 +59,14 @@
                     <p>
                         <em><small><strong>Created at :</strong> <%= user_detail.created_at.strftime("%d-%m-%Y %H:%M")%></small></em>
                     </p>
+                    <%= button_to user_detail_path(user_detail), method: :delete, class: "bg-danger text-white px-2 py-1 rounded", data: { turbo_confirm: "Are you sure?" } do %>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM4.354 4.354a.5.5 0 1 1 .708-.708L8 7.293l3.938-3.937a.5.5 0 0 1 .708.708L8.707 8l3.937 3.938a.5.5 0 1 1-.708.708L8 8.707l-3.938 3.937a.5.5 0 1 1-.708-.708L7.293 8 3.354 4.062a.5.5 0 0 1 .708-.708z"/>
+                        </svg>
+                    <% end %>
                 </div>
                 </div>
-                <%= button_to "Delete", user_detail_path(user_detail), method: :delete, class: "bg-danger text-white px-3 py-2 rounded", data: { turbo_confirm: "Are you sure?" } %>
+
             </div>
             <% end %>
         </div>
