@@ -22,7 +22,7 @@
                     <td><%= user_detail.name %></td>
                     <td><%= user_detail.contact_options %></td>
                     <td><%= user_detail.contact_details %></td>
-                    <td><%= user_detail.contributions.join(", ") if user_detail.contributions.is_a?(Array) %></td>
+                    <td><%= user_detail.contributions.is_a?(Array) ? user_detail.contributions.join(", ") : user_detail.contributions %></td>
                     <td><em><small><%= user_detail.created_at.strftime("%d-%m-%Y %H:%M")%></small></em></td>
                 </tr>
             <% end %>
