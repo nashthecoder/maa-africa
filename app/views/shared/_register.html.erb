@@ -4,14 +4,14 @@
         <%= form_with model: user_detail, local: true do |form| %>
             <div class="form-group mt-3">
             <strong><%= form.label :name %>:</strong>
-            <%= form.text_field :name, class: 'form-control' %>
+            <%= form.text_field :name, class: 'form-control', required: true %>
             </div>
             <div class="form-group mt-3">
                 <strong><%= form.label :contributions %>:</strong><br>
                 <hr>
                 <% ['Tell my story', 'Help fundraise', 'Help come up with a strategy', 'Get my hands dirty'].each do |contributions| %>
                     <div class="form-check">
-                        <%= check_box_tag 'user_detail[contributions][]', contributions, false, class: 'form-check-input' %>
+                        <%= check_box_tag 'user_detail[contributions][]', contributions, false, class: 'form-check-input'%>
                         <%= label_tag contributions, contributions, class: 'form-check-label' %>
                     </div>
                 <% end %>
@@ -19,11 +19,11 @@
 
             <div class="form-group mt-3">
             <strong><%= form.label :contact_options%>:</strong>
-            <%= form.select :contact_options, options_for_select([['How would you prefer I reach out to you?', ''], 'LinkedIn', 'Phone', 'Email',  'Other']), {}, {class: 'form-control text-muted'} %>
+            <%= form.select :contact_options, options_for_select([['How would you prefer I reach out to you?', ''], 'LinkedIn', 'Phone', 'Email',  'Other']), {}, {class: 'form-control text-muted', required: true} %>
             </div> 
             <div class="form-group mt-3 pb-4">
             <strong><%= form.label :contact_details%>:</strong>
-            <%= form.text_area :contact_details, placeholder: 'Please share your contact details.', class: 'form-control' %>
+            <%= form.text_area :contact_details, placeholder: 'Please share your contact details.', class: 'form-control', required: true %>
             </div>
             <div class="text-center">
             <%= form.submit 'Submit', class: 'btn btn-secondary' %>
