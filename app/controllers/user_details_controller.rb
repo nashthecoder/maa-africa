@@ -35,6 +35,6 @@ class UserDetailsController < ApplicationController
   private
 
   def user_detail_params
-    params.require(:user_detail).permit(:name, :contact_details, contributions: [])
+    params.require(:user_detail).permit(:name, contributions: [])
   end
 end
