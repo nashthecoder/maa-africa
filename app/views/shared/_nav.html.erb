@@ -1,0 +1,10 @@
+<div class="nav text-center text-white sticky-top p-2 bg-custom mt-0 d-flex justify-content-between align-items-center">
+    <h1 class="m-0">Page Admin</h1>
+    <% if user_signed_in? %>
+        <p><%= current_user.email %></p>
+        <%= link_to 'User Details', user_details_path, class: "btn btn-primary" %>
+    <% else %>
+    <h1 class="m-0">MAA-Africa</h1>
+        <%= button_to 'Sign in', new_user_session_path, class: "btn btn-dark" %>
+    <% end %>
+</div>

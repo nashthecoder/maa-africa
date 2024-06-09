@@ -6,14 +6,15 @@
     <%= csp_meta_tag %>
     <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %> 
 </head>
-<body>
-    <h1 class="nav text-center text-white sticky-top p-2 bg-custom mt-0">MAA-Africa</h1>
-        <div class="container">
-            <% if flash[:notice] %>
-                <div class="alert alert-primary text-center my-3">
-                    <%= flash[:notice] %>
-                </div>
+<body> 
+    
+    <div class="container">
+        <% if flash[:notice] %>
+            <div class="alert alert-primary text-center my-3">
+                <%= flash[:notice] %>
+            </div>
             <% end %>
+            <% render partial: 'shared/nav'%>
             <h2 class="text-center my-2 p-4"><strong>Let's talk about menopause.</strong></h2>
             <h5 class="p-3 mx-5 lh-lg">
                 <em>

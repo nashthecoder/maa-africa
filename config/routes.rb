@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Define your routes here
 
   # Example resource route
