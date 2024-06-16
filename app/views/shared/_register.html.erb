@@ -9,7 +9,7 @@
             <div class="form-group mt-3">
                 <strong><%= form.label :contributions %>:</strong><br>
                 <hr>
-                <% ['Tell my story', 'Help fundraise', 'Help come up with a strategy', 'Get my hands dirty'].each do |contributions| %>
+                <% ['Tell my story', 'Help fundraise'].each do |contributions| %>
                     <div class="form-check">
                         <%= check_box_tag 'user_detail[contributions][]', contributions, false, class: 'form-check-input'%>
                         <%= label_tag contributions, contributions, class: 'form-check-label' %>
