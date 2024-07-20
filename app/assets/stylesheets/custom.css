@@ -2,3 +2,8 @@
 .bg-custom {
     background-color: #996BE7 !important;
 }
+
+.logo {
+    text-decoration: none !important;
+    color: #fff;
+}
