@@ -20,6 +20,8 @@ Bundler.require(*Rails.groups)
 
 module SpaMenopauseafrica
   class Application < Rails::Application
+
+    config.mongoid.logger = Logger.new(STDERR, :warn)
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
@@ -35,7 +37,9 @@ module SpaMenopauseafrica
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
+    config.generators do |g|
+      g.orm :mongoid
+    end
     # Don't generate system test files.
     config.generators.system_tests = nil
   end

@@ -2,30 +2,31 @@
 <html>
 <head>
     <title>MAA-Africa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %> 
 </head>
-<body> 
-    
-    <div class="container">
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto px-4">
         <% if flash[:notice] %>
             <div class="alert alert-primary text-center my-3">
                 <%= flash[:notice] %>
             </div>
             <% end %>
             <% render partial: 'shared/nav'%>
-            <h2 class="text-center my-2 p-4"><strong>Let's talk about menopause.</strong></h2>
-            <h5 class="p-3 mx-5 lh-lg">
+            <h2 class="text-center p-4 font-bold text-xl">Let's talk about menopause.</h2>
+            <h5 class="p-2 mx-5 lh-lg">
                 <em>
                     Menopause, like any major life stage, is both exciting (no more periods!) and confusing. 
-                    <br>
-                    While I knew hot flashes were a common and well known symptom, I had many questions: How would I know for sure I had started menopause? What other changes might I experience? 
+                    While I knew hot flashes were a common and well known symptom, I had many questions: 
+                    How would I know for sure I had started menopause? 
+                    What other changes might I experience? 
                     Everything else felt like a mystery. 
                     <br>
                     Why is no one talking about this? Well, that's what I'm doing.
                     <br>
-                    Join me and let's talk about menopause!
+                    <p class="text-center mt-2">Join me and let's talk about menopause!</p>
                 </em>
             </h5>
             <div class="row m-3">
@@ -34,11 +35,10 @@
                     <div class="card-header">
                         <h5 class="card-title p-1">‘Me and my menopause’: a view from women around the world</h5>
                     </div>     
-                <div class="card-body">
-                    <br>
+                <div class="card-body p-4">
                     <%= image_tag '5472.avif', alt: 'Naijeria and Ondiege', class: 'img-fluid rounded d-block mx-auto' %>    
-                    <br>
-                    <p class="card-text">My take on menopause and its impact on my health and well being.</p>
+
+                    <p class="card-text mt-4">My take on menopause and its impact on my health and well being.</p>
                     <a href="https://www.theguardian.com/global-development/2024/feb/07/menopause-reproductive-health-stigma-medical-treatment-information-mood-anxiety-support#kenya-we-should-normalise-talking-about-it" class="btn btn-primary" target="_blank">Read the Article</a>
                 </div>
                 </div>
@@ -49,13 +49,10 @@
                     <div class="card-header">
                         <h5 class="card-title p-3">Menopause Buddies Podcast</h5>
                     </div>
-                <div class="card-body">
-
-                    <br>
+                <div class="card-body p-4">
 
                     <%= image_tag 'podcast_image.jpg', alt: 'Menopause Buddies Podcast Icon', class: 'img-fluid rounded d-block mx-auto' %>
-                    <br>
-                    <p class="card-text">Sharing journey and intention to open dialogue around menopause in my community</p>
+                    <p class="card-text mt-4">Sharing journey and intention to open dialogue around menopause in my community</p>
                     <a href="https://menopausebuddies.alitu.com/episode/1dd6a084-9f7b-4134-ad89-d112f25ac7c3" class="btn btn-primary" target="_blank">Listen to the Podcast</a>
                 </div>
                 </div>
@@ -71,8 +68,5 @@
             <%= render partial: 'shared/register', locals: { user_detail: @user_detail } %>
 
         </div>
-    <div class="text-center text-white sticky-bottom p-2 bg-custom mt-5">
-        <em>Powered by Mama Tech</em>
-    </div>
 </body>
 </html>
