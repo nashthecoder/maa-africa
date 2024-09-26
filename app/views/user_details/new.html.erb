@@ -2,71 +2,96 @@
 <html>
 <head>
     <title>MAA-Africa</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %> 
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
 </head>
 <body class="bg-gray-100 text-gray-900">
     <div class="container mx-auto px-4">
         <% if flash[:notice] %>
-            <div class="alert alert-primary text-center my-3">
+            <div class="alert alert-primary my-3 text-center">
                 <%= flash[:notice] %>
             </div>
-            <% end %>
-            <% render partial: 'shared/nav'%>
-            <h2 class="text-center p-4 font-bold text-xl">Let's talk about menopause.</h2>
-            <h5 class="p-2 mx-5 lh-lg">
-                <em>
-                    Menopause, like any major life stage, is both exciting (no more periods!) and confusing. 
-                    While I knew hot flashes were a common and well known symptom, I had many questions: 
-                    How would I know for sure I had started menopause? 
-                    What other changes might I experience? 
-                    Everything else felt like a mystery. 
-                    <br>
-                    Why is no one talking about this? Well, that's what I'm doing.
-                    <br>
-                    <p class="text-center mt-2">Join me and let's talk about menopause!</p>
-                </em>
-            </h5>
-            <div class="row m-3">
+        <% end %>
+        <%= render partial: 'shared/nav' %>
+        <h2 class="p-4 text-center text-xl font-bold">Let's talk about menopause.</h2>
+        <h5 class="lh-lg mx-5 p-2">
+            <em>
+                Menopause, like any major life stage, is both exciting (no more periods!) and confusing. 
+                While I knew hot flashes were a common and well known symptom, I had many questions: 
+                How would I know for sure I had started menopause? 
+                What other changes might I experience? 
+                Everything else felt like a mystery. 
+                <br />
+                Why is no one talking about this? Well, that's what I'm doing.
+                <br />
+                <p class="mt-2 text-center">Join me and let's talk about menopause!</p>
+            </em>
+        </h5>
+        <div class="row m-3">
             <div class="col-md-6 mb-3">
-                <div class="card">  
+                <div class="card">
                     <div class="card-header">
                         <h5 class="card-title p-1">‘Me and my menopause’: a view from women around the world</h5>
-                    </div>     
-                <div class="card-body p-4">
-                    <%= image_tag '5472.avif', alt: 'Naijeria and Ondiege', class: 'img-fluid rounded d-block mx-auto' %>    
-
-                    <p class="card-text mt-4">My take on menopause and its impact on my health and well being.</p>
-                    <a href="https://www.theguardian.com/global-development/2024/feb/07/menopause-reproductive-health-stigma-medical-treatment-information-mood-anxiety-support#kenya-we-should-normalise-talking-about-it" class="btn btn-primary" target="_blank">Read the Article</a>
-                </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <%= image_tag '5472.avif', alt: 'Naijeria and Ondiege', class: 'img-fluid rounded d-block mx-auto' %>
+                        <p class="card-text mt-4">My take on menopause and its impact on my health and well being.</p>
+                        <a href="https://www.theguardian.com/global-development/2024/feb/07/menopause-reproductive-health-stigma-medical-treatment-information-mood-anxiety-support#kenya-we-should-normalise-talking-about-it" class="btn btn-primary" target="_blank">Read the Article</a>
+                    </div>
                 </div>
             </div>
-
             <div class="col-md-6 mb-3">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title p-3">Menopause Buddies Podcast</h5>
                     </div>
-                <div class="card-body p-4">
-
-                    <%= image_tag 'podcast_image.jpg', alt: 'Menopause Buddies Podcast Icon', class: 'img-fluid rounded d-block mx-auto' %>
-                    <p class="card-text mt-4">Sharing journey and intention to open dialogue around menopause in my community</p>
-                    <a href="https://menopausebuddies.alitu.com/episode/1dd6a084-9f7b-4134-ad89-d112f25ac7c3" class="btn btn-primary" target="_blank">Listen to the Podcast</a>
-                </div>
+                    <div class="card-body p-4">
+                        <%= image_tag 'podcast_image.jpg', alt: 'Menopause Buddies Podcast Icon', class: 'img-fluid rounded d-block mx-auto' %>
+                        <p class="card-text mt-4">Sharing journey and intention to open dialogue around menopause in my community</p>
+                        <a href="https://menopausebuddies.alitu.com/episode/1dd6a084-9f7b-4134-ad89-d112f25ac7c3" class="btn btn-primary" target="_blank">Listen to the Podcast</a>
+                    </div>
                 </div>
             </div>
-            </div>
-            <h5 class="p-3 mx-5 lh-lg">
-                <em>If you have read my menopause story and or listened to the podcast and you would like to help me find and 
-                    share more stories of women in peri menopause, menopause or post menopause in Kenya and beyond, you are in the right place.
-                    <br>
-                    Fill the form below and I will reach out to you. 
-                </em>
-            </h5>
-            <%= render partial: 'shared/register', locals: { user_detail: @user_detail } %>
-
         </div>
+        <h5 class="lh-lg mx-5 p-3">
+            <em>
+                If you have read my menopause story and/or listened to the podcast, you're in the right place to get involved! I'm looking for women in peri-menopause, menopause, or post-menopause in Kenya and beyond to share their stories.
+                <br /><br />
+                Here's how you can contribute:
+            </em>
+        </h5>
+        <div class="row m-3">
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 pointer" data-toggle="modal" data-target="#tellMyStoryModal">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <i class="fas fa-microphone fa-3x mb-3"></i>
+                        <h5 class="card-title">Tell My Story</h5>
+                        <p class="card-text">Share your menopause journey and experiences.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 pointer" data-toggle="modal" data-target="#fundraiseModal">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <i class="fas fa-hand-holding-heart fa-3x mb-3"></i>
+                        <h5 class="card-title">Help Fundraise</h5>
+                        <p class="card-text">Support efforts to raise awareness and resources for menopause.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 pointer" data-toggle="modal" data-target="#resourcesModal">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <i class="fas fa-info-circle fa-3x mb-3"></i>
+                        <h5 class="card-title">Request Resources</h5>
+                        <p class="text-center">Get information and support about menopause.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <%= render partial: 'shared/register', locals: { user_detail: @user_detail } %> -->
+    </div>
 </body>
 </html>
