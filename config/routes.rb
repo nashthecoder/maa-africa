@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'symptoms/index'
+  get 'symptoms/new'
+  get 'symptoms/create'
+  get 'symptoms/checker'
   devise_for :users
   # Define your routes here
 
