@@ -7,9 +7,10 @@
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-secondary' %>
         </div>
     <% else %>
-        <%= link_to root_path, style: "text-decoration: none;", class: "m-0 text-white no-underline" do %>
-            <h1 class="m-0">MAA-Africa</h1>
-        <% end %>
+    <%= link_to root_path, style: "text-decoration: none;", class: "m-0 text-white no-underline d-flex align-items-center" do %>
+        <%= image_tag 'logo.png', alt: 'MAA-Africa Logo', class: 'logo-class m-2 rounded', height: '70', width: '70' %>
+        <h5 class="m-0">Menopause Awareness & Advocacy Africa</h5>
+    <% end %>
         <div class="d-flex align-items-center ms-auto">
             <!-- <%= link_to 'Stories', stories_path, class: "btn btn-light m-2" %> -->
             <!-- <%= link_to 'Resources', resources_path, class: "btn btn-light m-2" %> -->
